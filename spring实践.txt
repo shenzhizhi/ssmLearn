@@ -1,0 +1,321 @@
+bean是怎么被初始化和使用的？
+    1：bean的配置信息，有3种不同的配置：
+        xml的配置bean
+        基于注解的配置
+        基于java的配置
+
+    2：bean的实现类，每一个java类都会被实例化，变成一个对象
+    3：spring容器就会根据bean配置信息来实例化java类，
+    然后再把对象放到容器中以供调用
+
+    bean的相关属性：
+        1、scope：作用域
+        singleton单例模式（默认），容器创建就会实例化，不使用也会实例化
+        prototype每次从容器调用bean时，都会返回一个新实例
+        request每一次请求都会创建一个新的bean
+        session，一个会话共用一个实例
+
+        2、bean生命周期
+        声明init-method用于bean在实例化时执行
+        声明destroy-method用于在bean被销毁时运行
+        bean的定义--bean的初始化--bean的使用-- bean销毁
+
+        bean在定义了初始化函数后，还可以在初始化函数的前后再设定2个函数：
+        要实现BeanPostProcessor接口，重写2个函数，
+        一个是初始化之前
+        object postProcessBeforeInitialization (Object,String)
+        一个在初始化之后
+        object postProcessAfterInitialization(object,String)
+
+        3、bean的继承，一个bean可以在配置为其他bean的父bean，
+        子bean使用parent属性指定父bean的id
+        可以设置一个bean，专门作为模板，就类似虚拟类，设置abstract=true
+        其他子类可以继承他，父bean是不可以被实例化的。
+
+        4、bean的依赖注入
+        4.1通过构造函数注入
+        主bean要有一个构造函数，参数是需要被注入的bean,每一个参数代表一个对其他类的依赖
+        主bean的配置需要加一个constructor-arg标签，属性ref是被注入的bean的id
+        如果主bean的构造函数不止一个参数，那得通过添加index识别顺序：
+        如果想传值，直接使用value属性
+        <constructor-arg index="0" value="xx"/>
+        <constructor-arg index="1" value="xx"/>
+        4.2通过set函数注入
+        主bean需要有一个次bean的属性和次bean的set方法，每一个bean都在容器初始化时
+        就被创建，当bean被使用时，注入的bean就会被调取，如果该bean不是单例模式的，
+        那么这个bean就会在被使用时才被创建。
+        主bean的配置需要加一个property标签，如果是bean，就用ref属性，如果是一个值，
+        就使用value,如果有多个set函数，例如：
+        <bean id="john-classic" class="com.example.Person">
+            <property name="name" value="John Doe"/>
+            <property name="spouse" ref="jane"/>
+        </bean>
+        可以写成：（这是一般做法）
+        <bean id="john-classic" class="com.example.Person"
+              p:name="John Doe"
+              p:spouse-ref="jane"/>
+        </bean>
+        -ref是表明这个注入是一个bean的引用
+        4.3注入集合
+        可以注入list（允许重复的值），set（不允许重复的值），map（键值都可以是任何类型）
+        props（键值都是string）
+        list:
+        <property name="set方法参数名">
+            <list>
+                <value>INDIA</value>
+                <value>USA</value>
+                也可以直接把bean作为列表的值
+                <ref bean="asd"/>
+            </list>
+        </property>
+        set:
+        <property>
+            <set>
+                <value>INDIA</value>
+                <value>USA</value>
+            </set>
+        </property>
+        map:
+        <property>
+            <map>
+                <entry key="1" value="INDIA"/>
+                <entry key="2" value="USA"/>
+            </map>
+        </property>
+        props:
+        <property>
+            <props>
+                <prop key="one">INDIA</prop>
+                <prop key="two">USA</prop>
+                如果是null值，需要用null标签
+                <prop key="three"><null/></prop>
+            </props>
+        </property>
+
+        5.bean除了通过构造函数跟set函数注入bean，还可以自动装配bean
+        5.1 byName
+        在配置文件中，如果一个bean的auto-wire是byName，容器会尝试将他的属性
+        跟文件中的其他名字（查找bean的id）匹配的bean进行连接，如果找到就注入，找不到抛异常
+        需要主bean中有set方法，是通过set注入，而不是constructor注入
+        5.2 byType
+        在配置文件中，如果一个bean的auto-wire是byType，容器会尝试将他的属性
+        跟文件中的其他类型（查找bean的class）匹配的bean进行连接，如果找到了就注入吗，如果找不到就抛异常
+        也是需要主bean有set方法，通过set注入
+        5.3 constructor
+        在配置文件中，如果一个bean的auto-wire是constructor，这个bean的构造函数
+        会自动去寻找跟构造函数参数相同类型的bean来注入。找不到抛异常？
+        5.4 autodetect
+
+
+        6.基于注解的依赖注入
+        需要在配置文件中打开注解注入开关：<context:annotation-config/>
+        只是用来检查这个属性有没有被设置值，如果没有就会报错
+        @Required应用于setter方法
+
+        @Autowired应用于setter，非setter方法，构造函数，属性等，通过byType寻找bean
+        @Autowired才是真正能用来注入的。
+        默认情况下，使用@Autowired意味着依赖是必需的，如果找不到这个依赖就会报错
+        如果使用@Autowired（required=false），就算找不到这个依赖也不会报错。
+
+        如果同类型的类有多个bean，因为@Autowired是通过类型去找的，就会不知道
+        找哪一个，这时候加上@Qualifier（"具体的bean名"）就可以指定正确的bean
+
+        7.其他注解
+        @PostConstruct,代替init-method属性
+        @PreDestroy，代替destroy-method属性
+        @Resourse（name=""）可以应用在字段或者setter方法上，这个bean会以byName形式注入
+
+        8.如果想监听context容器的某些事件，例如：
+        ContextRefreshedEvent：context被初始化或者刷新时
+        ContextStartedEvent：context启动时
+        ContextStoppedEvent：context停止时
+        ContextClosedEvent：context被关闭时
+        这个bean需要：
+        implements ApplicationListener<ContextStoppedEvent>，再实现：
+        onApplicationEvent(ContextStoppedEvent)
+        <!--9.aop面向方面编程-->
+        无论是使用springaop还是aspectj都需要spring-aop,aspectjweaver这2个依赖
+        <!--声明一个aspect：-->
+        <aop:config>
+            <!--定义一个aspect，ref这个bean是方法触发后调用的那些方法所在的bean -->
+            <aop:aspect id="myAspect" ref="aBean">
+                <!--声明一个切入点，设置好匹配的方法-->
+                <!--execution(修饰符 返回值 包名.类名/接口名.方法名(参数列表))-->
+                <!--返回类型 方法名 参数，是必需的-->
+                <!--(..)代表所有参数，(*)代表一个参数，(*,String)代表第一个参数可以是任何值，第二个参数是string-->
+                <aop:pointcut id="businessService" expression="execution(* ceshi.*.*(..))"/>
+
+                <!--找到匹配的方法后就是设定在这个方法的各个状态要分别做什么操作：-->
+                <!--分别是：before，after，after-returning,after-throwing,around-->
+                <aop:before pointcut-ref="businessService" method="do"/>
+                <aop:after pointcut-ref="businessService" method="do"/>
+                <aop:after-returning pointcut-ref="businessService" method="do"/>
+                <aop:after-throwing pointcut-ref="businessService" method="do"/>
+                <aop:around pointcut-ref="businessService" method="do"/>
+            </aop:aspect>
+        </aop:config>
+
+        10. 通过注解形式的aop编程 @AspectJ
+        10.1 在配置文件里打开aspectj支持：
+        <aop:aspectj-autoproxy/>
+        10.2 如果想把一个类设置成aspect，在类名前加上@Aspect
+        10.3 定义一个切入点，在一个方法前加上：
+            @Pointcut("execution(* com.*.*(..))")
+            public void businessService(){}
+        10.4 定义一个advice,就是给这个方法配置一个规则，满足该规则的方法都会触发这个advice
+            @Before("businessService")
+            public void doBeforeTask(){}
+            @After("businessService()")
+            public void doAfterTask(){ }
+            @AfterReturning(pointcut = "businessService()", returning="retVal")
+            public void doAfterReturnningTask(Object retVal){}
+            @AfterThrowing(pointcut = "businessService()", throwing="ex")
+            public void doAfterThrowingTask(Exception ex){}
+            @Around("businessService()")
+            public void doAroundTask(){}
+        10.5也可以单独为一个advice配置一个规则
+            @Before("execution(* com.xyz.myapp.service.*.*(..))")
+            public doBeforeTask(){}
+
+        11. 使用jdbc连接数据库
+        11.1 需要在配置文件中配置好dataSource：
+        class是org.springframework.jdbc.datasource.DriverManagerDataSource
+        分别要有4个property：
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
+        <property name="username" value="root"/>
+        <property name="password" value="password"/>
+        11.2 设置数据访问dao接口
+        设置各个与数据库访问的方法，参数
+        11.3 设置数据表对应的实体类
+        一个字段对应该类的属性，以及每个属性的get，set方法
+        11.4 设置结果集映射实体类
+        class StudentMapper implements RowMappers<Student>{
+            public Student mapRow(ResuleSet rs,int rowNum) throws SQLExcaption{
+                Student student =new Student();
+                student.setId(rs.getInt("id"));
+                student.setName(rs.getString("name));
+                student.setAge(rs.getInt("age"));
+                return student;
+            }
+        }
+        11.5 dao接口的实现类
+        这个实现类需要2个属性，一个是数据源，用于设置JdbcTemplate
+        第二个就是JdbcTemplate：
+        public void setDataSource(DataSource dataSource){
+            this.dataSource=dataSource;
+            this.jdbctemplate=new JdbcTemplate(dataSource);
+        }
+        还需要实现接口的所有方法：
+        插入：
+        public void create(String name,Integer age){
+            String SQL="insert into Student (name,age) values(?,?)";
+            jdbctemplate.update(SQL,name,age);
+
+        }
+        查询，映射到实体类：
+        public Student getStudet(Integer id){
+            String SQL="select * from Student where id =?";
+            //参数需要弄成Object数组的形式，如果没有参数就省略这个参数
+            Student student=jdbctemplate.queryForObject(SQL,new Object[]{id},new StudentMapper());
+            return student;
+        }
+
+        12. 事务管理
+        主要是声明式事务跟aop的结合
+        12.1 配置事务管理器,配上关联的数据源（数据库）
+         <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"/>
+         </bean>
+        12.2 配置事务的属性，比如事务的传播，隔离级别，超时回滚
+        <tx:advice id="TestAdvice" transaction-manager="transactionManager">
+            <tx:attributes>
+                这里配置的方法是二次筛选，第一次筛选由aop的execution实现，待试验
+                name是匹配的名字，propagation是传播机制，isolation是事务隔离级别，timeout是超时时间，rollback-for触发回滚的异常，no-rollback-for不会触发回滚的异常
+                <tx:method name="re*" propagation="REQUIRED" read-only="true" isolation="DEFAULT"/>
+            </tx:attributes>
+        </tx:advice>
+        12.3 设置建议切入点，就是那些方法需要使用事务
+        <aop:config>
+            <aop:pointcut id="services" expression="execution(public* com.*.*(..))"/>
+            <aop:advisor pointcut-ref="services" advice-ref="TestAdvice"/>
+        </aop:config>
+        12.4 基于注解的事务 ？？
+
+        13. springmvc
+        model模型，封装应用程序数据，一半是实体类
+        view视图，生成浏览器可以解释的html输出
+        controller控制器，处理用户请求，构建合适的模型并传递到视图呈现
+
+        收到http请求，DispatcherServlet就会根据HandlerMapping选择
+        并调用正确的控制器，控制器接受请求，根据get或者post调用正确的
+        service方法，service再调用业务层Service层，处理后，返回正确的
+        模型数据跟视图名称，DispatcherServlet会从ViewResolver获取帮助，
+        为请求寻找正确的视图，确定视图后，DispatcherServlet会将模型数据
+        传递给视图，最后呈现在浏览器中。
+
+        13.1 配置DispatcherServlet
+        需要在web.xml中配置，把所有请求都分发给DispatcherServlet
+        <servlet>
+            <servlet-name>CeshiWeb</servlet-name>
+            <servlet-class>org.springframework.web.servlet.D</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>CeshiWeb</servlet-name>
+            <url-pattern>/</url-pattern>
+        </servlet-mapping>
+        13.2 程序会去加载webapp/WEB-INF下的xxx-servlet.xml的内容
+        如果想修改这个默认的位置，可以在web.xml配置好：
+        <context-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>/WEB-INF/HelloWeb-servlet.xml</param-value>
+        </context-param>
+        <listener>
+            <listener-class>
+                org.springframework.web.context.ContextLoaderListener
+            </listener-class>
+        </listener>
+        13.3 配置xxx-servlet.xml
+        打开包扫描，允许使用注释@Controller等：
+        <context:component-scan base-package="ceshi"/>
+        定义viewResolver，用于分发视图：下列规则是一个hello的逻辑视图会被分发到/WEB-INF/hello.jsp
+        <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+            <property name="prefix" value="/WEB-INF/jsp"/>
+            <property name="suffix" value=".jsp"/>
+        </bean>
+        13.4 定义控制器
+        @Controller
+        @RequestMapping("/hello")
+        public class Hello{
+            @RequestMapping(value="/hello" ,method=RequestMethod.GET)
+            public String print(ModelMap model){
+                //这个属性将会被视图访问并显示最终的结果
+                model.addAttribute("message","Hello Spring MVC");
+                return "hello";
+            }
+        }
+        13.5 编写一个jsp视图
+        <html>
+            <head>
+                <title>Hello Spring MVC</title>
+            </head>
+            <body>
+                <h2>${message}</h2>
+            </body>
+        </html>
+
+        13.4 分发一个静态页面请求
+        @RequestMapping(value = "/staticPage", method = RequestMethod.GET)
+        public String redirect() {
+            return "redirect:/pages/final.htm";
+        }
+
+        xxx-servlet.xml必需要有：mapping是映射的url，location是具体静态文件存储的位置
+        <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
+
+        13.5 设置日志：
+        static Logger log =Logger.getLogger(MainApp.class.getName());
+        log.info("");
+
+        设置log4j.properties
+        log4j.appender.FILE.File=C:\\log.out
