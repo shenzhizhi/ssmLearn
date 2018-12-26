@@ -9,9 +9,9 @@ public class MainApp {
     public static void main(String[] args) {
 
     ApplicationContext context=new ClassPathXmlApplicationContext("Beans.xml");
-//        HelloWorld helloWorld=(HelloWorld) context.getBean("hello");
-//        System.out.println(helloWorld.toString());
-        HelloWorld hello  =(HelloWorld) context.getBean("hello");
-       hello.ceshi();
+
+       DaoImpl daoimpl  =(DaoImpl) context.getBean("daoimpl");
+//       daoimpl.add("qiuwei",24);
+        System.out.println(daoimpl.select("qiuwei",24).toString());
     }
 }

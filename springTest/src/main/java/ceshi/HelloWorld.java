@@ -10,7 +10,8 @@ import javax.annotation.PostConstruct;
 import javax.annotation.PreDestroy;
 import javax.annotation.Resource;
 
-public class HelloWorld  {
+public class
+HelloWorld  {
     public void ceshi(){
         System.out.println("调用测试函数");
     }

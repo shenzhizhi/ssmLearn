@@ -258,7 +258,7 @@ bean是怎么被初始化和使用的？
         需要在web.xml中配置，把所有请求都分发给DispatcherServlet
         <servlet>
             <servlet-name>CeshiWeb</servlet-name>
-            <servlet-class>org.springframework.web.servlet.D</servlet-class>
+            <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         </servlet>
         <servlet-mapping>
             <servlet-name>CeshiWeb</servlet-name>
