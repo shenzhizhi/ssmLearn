@@ -1,70 +1,70 @@
-beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
-    1£ºbeanµÄÅäÖÃĞÅÏ¢£¬ÓĞ3ÖÖ²»Í¬µÄÅäÖÃ£º
-        xmlµÄÅäÖÃbean
-        »ùÓÚ×¢½âµÄÅäÖÃ
-        »ùÓÚjavaµÄÅäÖÃ
+beanæ˜¯æ€ä¹ˆè¢«åˆå§‹åŒ–å’Œä½¿ç”¨çš„ï¼Ÿ
+    1ï¼šbeançš„é…ç½®ä¿¡æ¯ï¼Œæœ‰3ç§ä¸åŒçš„é…ç½®ï¼š
+        xmlçš„é…ç½®bean
+        åŸºäºæ³¨è§£çš„é…ç½®
+        åŸºäºjavaçš„é…ç½®
 
-    2£ºbeanµÄÊµÏÖÀà£¬Ã¿Ò»¸öjavaÀà¶¼»á±»ÊµÀı»¯£¬±ä³ÉÒ»¸ö¶ÔÏó
-    3£ºspringÈİÆ÷¾Í»á¸ù¾İbeanÅäÖÃĞÅÏ¢À´ÊµÀı»¯javaÀà£¬
-    È»ºóÔÙ°Ñ¶ÔÏó·Åµ½ÈİÆ÷ÖĞÒÔ¹©µ÷ÓÃ
+    2ï¼šbeançš„å®ç°ç±»ï¼Œæ¯ä¸€ä¸ªjavaç±»éƒ½ä¼šè¢«å®ä¾‹åŒ–ï¼Œå˜æˆä¸€ä¸ªå¯¹è±¡
+    3ï¼šspringå®¹å™¨å°±ä¼šæ ¹æ®beané…ç½®ä¿¡æ¯æ¥å®ä¾‹åŒ–javaç±»ï¼Œ
+    ç„¶åå†æŠŠå¯¹è±¡æ”¾åˆ°å®¹å™¨ä¸­ä»¥ä¾›è°ƒç”¨
 
-    beanµÄÏà¹ØÊôĞÔ£º
-        1¡¢scope£º×÷ÓÃÓò
-        singletonµ¥ÀıÄ£Ê½£¨Ä¬ÈÏ£©£¬ÈİÆ÷´´½¨¾Í»áÊµÀı»¯£¬²»Ê¹ÓÃÒ²»áÊµÀı»¯
-        prototypeÃ¿´Î´ÓÈİÆ÷µ÷ÓÃbeanÊ±£¬¶¼»á·µ»ØÒ»¸öĞÂÊµÀı
-        requestÃ¿Ò»´ÎÇëÇó¶¼»á´´½¨Ò»¸öĞÂµÄbean
-        session£¬Ò»¸ö»á»°¹²ÓÃÒ»¸öÊµÀı
+    beançš„ç›¸å…³å±æ€§ï¼š
+        1ã€scopeï¼šä½œç”¨åŸŸ
+        singletonå•ä¾‹æ¨¡å¼ï¼ˆé»˜è®¤ï¼‰ï¼Œå®¹å™¨åˆ›å»ºå°±ä¼šå®ä¾‹åŒ–ï¼Œä¸ä½¿ç”¨ä¹Ÿä¼šå®ä¾‹åŒ–
+        prototypeæ¯æ¬¡ä»å®¹å™¨è°ƒç”¨beanæ—¶ï¼Œéƒ½ä¼šè¿”å›ä¸€ä¸ªæ–°å®ä¾‹
+        requestæ¯ä¸€æ¬¡è¯·æ±‚éƒ½ä¼šåˆ›å»ºä¸€ä¸ªæ–°çš„bean
+        sessionï¼Œä¸€ä¸ªä¼šè¯å…±ç”¨ä¸€ä¸ªå®ä¾‹
 
-        2¡¢beanÉúÃüÖÜÆÚ
-        ÉùÃ÷init-methodÓÃÓÚbeanÔÚÊµÀı»¯Ê±Ö´ĞĞ
-        ÉùÃ÷destroy-methodÓÃÓÚÔÚbean±»Ïú»ÙÊ±ÔËĞĞ
-        beanµÄ¶¨Òå--beanµÄ³õÊ¼»¯--beanµÄÊ¹ÓÃ-- beanÏú»Ù
+        2ã€beanç”Ÿå‘½å‘¨æœŸ
+        å£°æ˜init-methodç”¨äºbeanåœ¨å®ä¾‹åŒ–æ—¶æ‰§è¡Œ
+        å£°æ˜destroy-methodç”¨äºåœ¨beanè¢«é”€æ¯æ—¶è¿è¡Œ
+        beançš„å®šä¹‰--beançš„åˆå§‹åŒ–--beançš„ä½¿ç”¨-- beané”€æ¯
 
-        beanÔÚ¶¨ÒåÁË³õÊ¼»¯º¯Êıºó£¬»¹¿ÉÒÔÔÚ³õÊ¼»¯º¯ÊıµÄÇ°ºóÔÙÉè¶¨2¸öº¯Êı£º
-        ÒªÊµÏÖBeanPostProcessor½Ó¿Ú£¬ÖØĞ´2¸öº¯Êı£¬
-        Ò»¸öÊÇ³õÊ¼»¯Ö®Ç°
+        beanåœ¨å®šä¹‰äº†åˆå§‹åŒ–å‡½æ•°åï¼Œè¿˜å¯ä»¥åœ¨åˆå§‹åŒ–å‡½æ•°çš„å‰åå†è®¾å®š2ä¸ªå‡½æ•°ï¼š
+        è¦å®ç°BeanPostProcessoræ¥å£ï¼Œé‡å†™2ä¸ªå‡½æ•°ï¼Œ
+        ä¸€ä¸ªæ˜¯åˆå§‹åŒ–ä¹‹å‰
         object postProcessBeforeInitialization (Object,String)
-        Ò»¸öÔÚ³õÊ¼»¯Ö®ºó
+        ä¸€ä¸ªåœ¨åˆå§‹åŒ–ä¹‹å
         object postProcessAfterInitialization(object,String)
 
-        3¡¢beanµÄ¼Ì³Ğ£¬Ò»¸öbean¿ÉÒÔÔÚÅäÖÃÎªÆäËûbeanµÄ¸¸bean£¬
-        ×ÓbeanÊ¹ÓÃparentÊôĞÔÖ¸¶¨¸¸beanµÄid
-        ¿ÉÒÔÉèÖÃÒ»¸öbean£¬×¨ÃÅ×÷ÎªÄ£°å£¬¾ÍÀàËÆĞéÄâÀà£¬ÉèÖÃabstract=true
-        ÆäËû×ÓÀà¿ÉÒÔ¼Ì³ĞËû£¬¸¸beanÊÇ²»¿ÉÒÔ±»ÊµÀı»¯µÄ¡£
+        3ã€beançš„ç»§æ‰¿ï¼Œä¸€ä¸ªbeanå¯ä»¥åœ¨é…ç½®ä¸ºå…¶ä»–beançš„çˆ¶beanï¼Œ
+        å­beanä½¿ç”¨parentå±æ€§æŒ‡å®šçˆ¶beançš„id
+        å¯ä»¥è®¾ç½®ä¸€ä¸ªbeanï¼Œä¸“é—¨ä½œä¸ºæ¨¡æ¿ï¼Œå°±ç±»ä¼¼è™šæ‹Ÿç±»ï¼Œè®¾ç½®abstract=true
+        å…¶ä»–å­ç±»å¯ä»¥ç»§æ‰¿ä»–ï¼Œçˆ¶beanæ˜¯ä¸å¯ä»¥è¢«å®ä¾‹åŒ–çš„ã€‚
 
-        4¡¢beanµÄÒÀÀµ×¢Èë
-        4.1Í¨¹ı¹¹Ôìº¯Êı×¢Èë
-        Ö÷beanÒªÓĞÒ»¸ö¹¹Ôìº¯Êı£¬²ÎÊıÊÇĞèÒª±»×¢ÈëµÄbean,Ã¿Ò»¸ö²ÎÊı´ú±íÒ»¸ö¶ÔÆäËûÀàµÄÒÀÀµ
-        Ö÷beanµÄÅäÖÃĞèÒª¼ÓÒ»¸öconstructor-arg±êÇ©£¬ÊôĞÔrefÊÇ±»×¢ÈëµÄbeanµÄid
-        Èç¹ûÖ÷beanµÄ¹¹Ôìº¯Êı²»Ö¹Ò»¸ö²ÎÊı£¬ÄÇµÃÍ¨¹ıÌí¼ÓindexÊ¶±ğË³Ğò£º
-        Èç¹ûÏë´«Öµ£¬Ö±½ÓÊ¹ÓÃvalueÊôĞÔ
+        4ã€beançš„ä¾èµ–æ³¨å…¥
+        4.1é€šè¿‡æ„é€ å‡½æ•°æ³¨å…¥
+        ä¸»beanè¦æœ‰ä¸€ä¸ªæ„é€ å‡½æ•°ï¼Œå‚æ•°æ˜¯éœ€è¦è¢«æ³¨å…¥çš„bean,æ¯ä¸€ä¸ªå‚æ•°ä»£è¡¨ä¸€ä¸ªå¯¹å…¶ä»–ç±»çš„ä¾èµ–
+        ä¸»beançš„é…ç½®éœ€è¦åŠ ä¸€ä¸ªconstructor-argæ ‡ç­¾ï¼Œå±æ€§refæ˜¯è¢«æ³¨å…¥çš„beançš„id
+        å¦‚æœä¸»beançš„æ„é€ å‡½æ•°ä¸æ­¢ä¸€ä¸ªå‚æ•°ï¼Œé‚£å¾—é€šè¿‡æ·»åŠ indexè¯†åˆ«é¡ºåºï¼š
+        å¦‚æœæƒ³ä¼ å€¼ï¼Œç›´æ¥ä½¿ç”¨valueå±æ€§
         <constructor-arg index="0" value="xx"/>
         <constructor-arg index="1" value="xx"/>
-        4.2Í¨¹ısetº¯Êı×¢Èë
-        Ö÷beanĞèÒªÓĞÒ»¸ö´ÎbeanµÄÊôĞÔºÍ´ÎbeanµÄset·½·¨£¬Ã¿Ò»¸öbean¶¼ÔÚÈİÆ÷³õÊ¼»¯Ê±
-        ¾Í±»´´½¨£¬µ±bean±»Ê¹ÓÃÊ±£¬×¢ÈëµÄbean¾Í»á±»µ÷È¡£¬Èç¹û¸Ãbean²»ÊÇµ¥ÀıÄ£Ê½µÄ£¬
-        ÄÇÃ´Õâ¸öbean¾Í»áÔÚ±»Ê¹ÓÃÊ±²Å±»´´½¨¡£
-        Ö÷beanµÄÅäÖÃĞèÒª¼ÓÒ»¸öproperty±êÇ©£¬Èç¹ûÊÇbean£¬¾ÍÓÃrefÊôĞÔ£¬Èç¹ûÊÇÒ»¸öÖµ£¬
-        ¾ÍÊ¹ÓÃvalue,Èç¹ûÓĞ¶à¸ösetº¯Êı£¬ÀıÈç£º
+        4.2é€šè¿‡setå‡½æ•°æ³¨å…¥
+        ä¸»beanéœ€è¦æœ‰ä¸€ä¸ªæ¬¡beançš„å±æ€§å’Œæ¬¡beançš„setæ–¹æ³•ï¼Œæ¯ä¸€ä¸ªbeanéƒ½åœ¨å®¹å™¨åˆå§‹åŒ–æ—¶
+        å°±è¢«åˆ›å»ºï¼Œå½“beanè¢«ä½¿ç”¨æ—¶ï¼Œæ³¨å…¥çš„beanå°±ä¼šè¢«è°ƒå–ï¼Œå¦‚æœè¯¥beanä¸æ˜¯å•ä¾‹æ¨¡å¼çš„ï¼Œ
+        é‚£ä¹ˆè¿™ä¸ªbeanå°±ä¼šåœ¨è¢«ä½¿ç”¨æ—¶æ‰è¢«åˆ›å»ºã€‚
+        ä¸»beançš„é…ç½®éœ€è¦åŠ ä¸€ä¸ªpropertyæ ‡ç­¾ï¼Œå¦‚æœæ˜¯beanï¼Œå°±ç”¨refå±æ€§ï¼Œå¦‚æœæ˜¯ä¸€ä¸ªå€¼ï¼Œ
+        å°±ä½¿ç”¨value,å¦‚æœæœ‰å¤šä¸ªsetå‡½æ•°ï¼Œä¾‹å¦‚ï¼š
         <bean id="john-classic" class="com.example.Person">
             <property name="name" value="John Doe"/>
             <property name="spouse" ref="jane"/>
         </bean>
-        ¿ÉÒÔĞ´³É£º£¨ÕâÊÇÒ»°ã×ö·¨£©
+        å¯ä»¥å†™æˆï¼šï¼ˆè¿™æ˜¯ä¸€èˆ¬åšæ³•ï¼‰
         <bean id="john-classic" class="com.example.Person"
               p:name="John Doe"
               p:spouse-ref="jane"/>
         </bean>
-        -refÊÇ±íÃ÷Õâ¸ö×¢ÈëÊÇÒ»¸öbeanµÄÒıÓÃ
-        4.3×¢Èë¼¯ºÏ
-        ¿ÉÒÔ×¢Èëlist£¨ÔÊĞíÖØ¸´µÄÖµ£©£¬set£¨²»ÔÊĞíÖØ¸´µÄÖµ£©£¬map£¨¼üÖµ¶¼¿ÉÒÔÊÇÈÎºÎÀàĞÍ£©
-        props£¨¼üÖµ¶¼ÊÇstring£©
+        -refæ˜¯è¡¨æ˜è¿™ä¸ªæ³¨å…¥æ˜¯ä¸€ä¸ªbeançš„å¼•ç”¨
+        4.3æ³¨å…¥é›†åˆ
+        å¯ä»¥æ³¨å…¥listï¼ˆå…è®¸é‡å¤çš„å€¼ï¼‰ï¼Œsetï¼ˆä¸å…è®¸é‡å¤çš„å€¼ï¼‰ï¼Œmapï¼ˆé”®å€¼éƒ½å¯ä»¥æ˜¯ä»»ä½•ç±»å‹ï¼‰
+        propsï¼ˆé”®å€¼éƒ½æ˜¯stringï¼‰
         list:
-        <property name="set·½·¨²ÎÊıÃû">
+        <property name="setæ–¹æ³•å‚æ•°å">
             <list>
                 <value>INDIA</value>
                 <value>USA</value>
-                Ò²¿ÉÒÔÖ±½Ó°Ñbean×÷ÎªÁĞ±íµÄÖµ
+                ä¹Ÿå¯ä»¥ç›´æ¥æŠŠbeanä½œä¸ºåˆ—è¡¨çš„å€¼
                 <ref bean="asd"/>
             </list>
         </property>
@@ -87,66 +87,66 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
             <props>
                 <prop key="one">INDIA</prop>
                 <prop key="two">USA</prop>
-                Èç¹ûÊÇnullÖµ£¬ĞèÒªÓÃnull±êÇ©
+                å¦‚æœæ˜¯nullå€¼ï¼Œéœ€è¦ç”¨nullæ ‡ç­¾
                 <prop key="three"><null/></prop>
             </props>
         </property>
 
-        5.bean³ıÁËÍ¨¹ı¹¹Ôìº¯Êı¸úsetº¯Êı×¢Èëbean£¬»¹¿ÉÒÔ×Ô¶¯×°Åäbean
+        5.beané™¤äº†é€šè¿‡æ„é€ å‡½æ•°è·Ÿsetå‡½æ•°æ³¨å…¥beanï¼Œè¿˜å¯ä»¥è‡ªåŠ¨è£…é…bean
         5.1 byName
-        ÔÚÅäÖÃÎÄ¼şÖĞ£¬Èç¹ûÒ»¸öbeanµÄauto-wireÊÇbyName£¬ÈİÆ÷»á³¢ÊÔ½«ËûµÄÊôĞÔ
-        ¸úÎÄ¼şÖĞµÄÆäËûÃû×Ö£¨²éÕÒbeanµÄid£©Æ¥ÅäµÄbean½øĞĞÁ¬½Ó£¬Èç¹ûÕÒµ½¾Í×¢Èë£¬ÕÒ²»µ½Å×Òì³£
-        ĞèÒªÖ÷beanÖĞÓĞset·½·¨£¬ÊÇÍ¨¹ıset×¢Èë£¬¶ø²»ÊÇconstructor×¢Èë
+        åœ¨é…ç½®æ–‡ä»¶ä¸­ï¼Œå¦‚æœä¸€ä¸ªbeançš„auto-wireæ˜¯byNameï¼Œå®¹å™¨ä¼šå°è¯•å°†ä»–çš„å±æ€§
+        è·Ÿæ–‡ä»¶ä¸­çš„å…¶ä»–åå­—ï¼ˆæŸ¥æ‰¾beançš„idï¼‰åŒ¹é…çš„beanè¿›è¡Œè¿æ¥ï¼Œå¦‚æœæ‰¾åˆ°å°±æ³¨å…¥ï¼Œæ‰¾ä¸åˆ°æŠ›å¼‚å¸¸
+        éœ€è¦ä¸»beanä¸­æœ‰setæ–¹æ³•ï¼Œæ˜¯é€šè¿‡setæ³¨å…¥ï¼Œè€Œä¸æ˜¯constructoræ³¨å…¥
         5.2 byType
-        ÔÚÅäÖÃÎÄ¼şÖĞ£¬Èç¹ûÒ»¸öbeanµÄauto-wireÊÇbyType£¬ÈİÆ÷»á³¢ÊÔ½«ËûµÄÊôĞÔ
-        ¸úÎÄ¼şÖĞµÄÆäËûÀàĞÍ£¨²éÕÒbeanµÄclass£©Æ¥ÅäµÄbean½øĞĞÁ¬½Ó£¬Èç¹ûÕÒµ½ÁË¾Í×¢ÈëÂğ£¬Èç¹ûÕÒ²»µ½¾ÍÅ×Òì³£
-        Ò²ÊÇĞèÒªÖ÷beanÓĞset·½·¨£¬Í¨¹ıset×¢Èë
+        åœ¨é…ç½®æ–‡ä»¶ä¸­ï¼Œå¦‚æœä¸€ä¸ªbeançš„auto-wireæ˜¯byTypeï¼Œå®¹å™¨ä¼šå°è¯•å°†ä»–çš„å±æ€§
+        è·Ÿæ–‡ä»¶ä¸­çš„å…¶ä»–ç±»å‹ï¼ˆæŸ¥æ‰¾beançš„classï¼‰åŒ¹é…çš„beanè¿›è¡Œè¿æ¥ï¼Œå¦‚æœæ‰¾åˆ°äº†å°±æ³¨å…¥å—ï¼Œå¦‚æœæ‰¾ä¸åˆ°å°±æŠ›å¼‚å¸¸
+        ä¹Ÿæ˜¯éœ€è¦ä¸»beanæœ‰setæ–¹æ³•ï¼Œé€šè¿‡setæ³¨å…¥
         5.3 constructor
-        ÔÚÅäÖÃÎÄ¼şÖĞ£¬Èç¹ûÒ»¸öbeanµÄauto-wireÊÇconstructor£¬Õâ¸öbeanµÄ¹¹Ôìº¯Êı
-        »á×Ô¶¯È¥Ñ°ÕÒ¸ú¹¹Ôìº¯Êı²ÎÊıÏàÍ¬ÀàĞÍµÄbeanÀ´×¢Èë¡£ÕÒ²»µ½Å×Òì³££¿
+        åœ¨é…ç½®æ–‡ä»¶ä¸­ï¼Œå¦‚æœä¸€ä¸ªbeançš„auto-wireæ˜¯constructorï¼Œè¿™ä¸ªbeançš„æ„é€ å‡½æ•°
+        ä¼šè‡ªåŠ¨å»å¯»æ‰¾è·Ÿæ„é€ å‡½æ•°å‚æ•°ç›¸åŒç±»å‹çš„beanæ¥æ³¨å…¥ã€‚æ‰¾ä¸åˆ°æŠ›å¼‚å¸¸ï¼Ÿ
         5.4 autodetect
 
 
-        6.»ùÓÚ×¢½âµÄÒÀÀµ×¢Èë
-        ĞèÒªÔÚÅäÖÃÎÄ¼şÖĞ´ò¿ª×¢½â×¢Èë¿ª¹Ø£º<context:annotation-config/>
-        Ö»ÊÇÓÃÀ´¼ì²éÕâ¸öÊôĞÔÓĞÃ»ÓĞ±»ÉèÖÃÖµ£¬Èç¹ûÃ»ÓĞ¾Í»á±¨´í
-        @RequiredÓ¦ÓÃÓÚsetter·½·¨
+        6.åŸºäºæ³¨è§£çš„ä¾èµ–æ³¨å…¥
+        éœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­æ‰“å¼€æ³¨è§£æ³¨å…¥å¼€å…³ï¼š<context:annotation-config/>
+        åªæ˜¯ç”¨æ¥æ£€æŸ¥è¿™ä¸ªå±æ€§æœ‰æ²¡æœ‰è¢«è®¾ç½®å€¼ï¼Œå¦‚æœæ²¡æœ‰å°±ä¼šæŠ¥é”™
+        @Requiredåº”ç”¨äºsetteræ–¹æ³•
 
-        @AutowiredÓ¦ÓÃÓÚsetter£¬·Çsetter·½·¨£¬¹¹Ôìº¯Êı£¬ÊôĞÔµÈ£¬Í¨¹ıbyTypeÑ°ÕÒbean
-        @Autowired²ÅÊÇÕæÕıÄÜÓÃÀ´×¢ÈëµÄ¡£
-        Ä¬ÈÏÇé¿öÏÂ£¬Ê¹ÓÃ@AutowiredÒâÎ¶×ÅÒÀÀµÊÇ±ØĞèµÄ£¬Èç¹ûÕÒ²»µ½Õâ¸öÒÀÀµ¾Í»á±¨´í
-        Èç¹ûÊ¹ÓÃ@Autowired£¨required=false£©£¬¾ÍËãÕÒ²»µ½Õâ¸öÒÀÀµÒ²²»»á±¨´í¡£
+        @Autowiredåº”ç”¨äºsetterï¼Œésetteræ–¹æ³•ï¼Œæ„é€ å‡½æ•°ï¼Œå±æ€§ç­‰ï¼Œé€šè¿‡byTypeå¯»æ‰¾bean
+        @Autowiredæ‰æ˜¯çœŸæ­£èƒ½ç”¨æ¥æ³¨å…¥çš„ã€‚
+        é»˜è®¤æƒ…å†µä¸‹ï¼Œä½¿ç”¨@Autowiredæ„å‘³ç€ä¾èµ–æ˜¯å¿…éœ€çš„ï¼Œå¦‚æœæ‰¾ä¸åˆ°è¿™ä¸ªä¾èµ–å°±ä¼šæŠ¥é”™
+        å¦‚æœä½¿ç”¨@Autowiredï¼ˆrequired=falseï¼‰ï¼Œå°±ç®—æ‰¾ä¸åˆ°è¿™ä¸ªä¾èµ–ä¹Ÿä¸ä¼šæŠ¥é”™ã€‚
 
-        Èç¹ûÍ¬ÀàĞÍµÄÀàÓĞ¶à¸öbean£¬ÒòÎª@AutowiredÊÇÍ¨¹ıÀàĞÍÈ¥ÕÒµÄ£¬¾Í»á²»ÖªµÀ
-        ÕÒÄÄÒ»¸ö£¬ÕâÊ±ºò¼ÓÉÏ@Qualifier£¨"¾ßÌåµÄbeanÃû"£©¾Í¿ÉÒÔÖ¸¶¨ÕıÈ·µÄbean
+        å¦‚æœåŒç±»å‹çš„ç±»æœ‰å¤šä¸ªbeanï¼Œå› ä¸º@Autowiredæ˜¯é€šè¿‡ç±»å‹å»æ‰¾çš„ï¼Œå°±ä¼šä¸çŸ¥é“
+        æ‰¾å“ªä¸€ä¸ªï¼Œè¿™æ—¶å€™åŠ ä¸Š@Qualifierï¼ˆ"å…·ä½“çš„beanå"ï¼‰å°±å¯ä»¥æŒ‡å®šæ­£ç¡®çš„bean
 
-        7.ÆäËû×¢½â
-        @PostConstruct,´úÌæinit-methodÊôĞÔ
-        @PreDestroy£¬´úÌædestroy-methodÊôĞÔ
-        @Resourse£¨name=""£©¿ÉÒÔÓ¦ÓÃÔÚ×Ö¶Î»òÕßsetter·½·¨ÉÏ£¬Õâ¸öbean»áÒÔbyNameĞÎÊ½×¢Èë
+        7.å…¶ä»–æ³¨è§£
+        @PostConstruct,ä»£æ›¿init-methodå±æ€§
+        @PreDestroyï¼Œä»£æ›¿destroy-methodå±æ€§
+        @Resourseï¼ˆname=""ï¼‰å¯ä»¥åº”ç”¨åœ¨å­—æ®µæˆ–è€…setteræ–¹æ³•ä¸Šï¼Œè¿™ä¸ªbeanä¼šä»¥byNameå½¢å¼æ³¨å…¥
 
-        8.Èç¹ûÏë¼àÌıcontextÈİÆ÷µÄÄ³Ğ©ÊÂ¼ş£¬ÀıÈç£º
-        ContextRefreshedEvent£ºcontext±»³õÊ¼»¯»òÕßË¢ĞÂÊ±
-        ContextStartedEvent£ºcontextÆô¶¯Ê±
-        ContextStoppedEvent£ºcontextÍ£Ö¹Ê±
-        ContextClosedEvent£ºcontext±»¹Ø±ÕÊ±
-        Õâ¸öbeanĞèÒª£º
-        implements ApplicationListener<ContextStoppedEvent>£¬ÔÙÊµÏÖ£º
+        8.å¦‚æœæƒ³ç›‘å¬contextå®¹å™¨çš„æŸäº›äº‹ä»¶ï¼Œä¾‹å¦‚ï¼š
+        ContextRefreshedEventï¼šcontextè¢«åˆå§‹åŒ–æˆ–è€…åˆ·æ–°æ—¶
+        ContextStartedEventï¼šcontextå¯åŠ¨æ—¶
+        ContextStoppedEventï¼šcontextåœæ­¢æ—¶
+        ContextClosedEventï¼šcontextè¢«å…³é—­æ—¶
+        è¿™ä¸ªbeanéœ€è¦ï¼š
+        implements ApplicationListener<ContextStoppedEvent>ï¼Œå†å®ç°ï¼š
         onApplicationEvent(ContextStoppedEvent)
-        <!--9.aopÃæÏò·½Ãæ±à³Ì-->
-        ÎŞÂÛÊÇÊ¹ÓÃspringaop»¹ÊÇaspectj¶¼ĞèÒªspring-aop,aspectjweaverÕâ2¸öÒÀÀµ
-        <!--ÉùÃ÷Ò»¸öaspect£º-->
+        <!--9.aopé¢å‘æ–¹é¢ç¼–ç¨‹-->
+        æ— è®ºæ˜¯ä½¿ç”¨springaopè¿˜æ˜¯aspectjéƒ½éœ€è¦spring-aop,aspectjweaverè¿™2ä¸ªä¾èµ–
+        <!--å£°æ˜ä¸€ä¸ªaspectï¼š-->
         <aop:config>
-            <!--¶¨ÒåÒ»¸öaspect£¬refÕâ¸öbeanÊÇ·½·¨´¥·¢ºóµ÷ÓÃµÄÄÇĞ©·½·¨ËùÔÚµÄbean -->
+            <!--å®šä¹‰ä¸€ä¸ªaspectï¼Œrefè¿™ä¸ªbeanæ˜¯æ–¹æ³•è§¦å‘åè°ƒç”¨çš„é‚£äº›æ–¹æ³•æ‰€åœ¨çš„bean -->
             <aop:aspect id="myAspect" ref="aBean">
-                <!--ÉùÃ÷Ò»¸öÇĞÈëµã£¬ÉèÖÃºÃÆ¥ÅäµÄ·½·¨-->
-                <!--execution(ĞŞÊÎ·û ·µ»ØÖµ °üÃû.ÀàÃû/½Ó¿ÚÃû.·½·¨Ãû(²ÎÊıÁĞ±í))-->
-                <!--·µ»ØÀàĞÍ ·½·¨Ãû ²ÎÊı£¬ÊÇ±ØĞèµÄ-->
-                <!--(..)´ú±íËùÓĞ²ÎÊı£¬(*)´ú±íÒ»¸ö²ÎÊı£¬(*,String)´ú±íµÚÒ»¸ö²ÎÊı¿ÉÒÔÊÇÈÎºÎÖµ£¬µÚ¶ş¸ö²ÎÊıÊÇstring-->
+                <!--å£°æ˜ä¸€ä¸ªåˆ‡å…¥ç‚¹ï¼Œè®¾ç½®å¥½åŒ¹é…çš„æ–¹æ³•-->
+                <!--execution(ä¿®é¥°ç¬¦ è¿”å›å€¼ åŒ…å.ç±»å/æ¥å£å.æ–¹æ³•å(å‚æ•°åˆ—è¡¨))-->
+                <!--è¿”å›ç±»å‹ æ–¹æ³•å å‚æ•°ï¼Œæ˜¯å¿…éœ€çš„-->
+                <!--(..)ä»£è¡¨æ‰€æœ‰å‚æ•°ï¼Œ(*)ä»£è¡¨ä¸€ä¸ªå‚æ•°ï¼Œ(*,String)ä»£è¡¨ç¬¬ä¸€ä¸ªå‚æ•°å¯ä»¥æ˜¯ä»»ä½•å€¼ï¼Œç¬¬äºŒä¸ªå‚æ•°æ˜¯string-->
                 <aop:pointcut id="businessService" expression="execution(* ceshi.*.*(..))"/>
 
-                <!--ÕÒµ½Æ¥ÅäµÄ·½·¨ºó¾ÍÊÇÉè¶¨ÔÚÕâ¸ö·½·¨µÄ¸÷¸ö×´Ì¬Òª·Ö±ğ×öÊ²Ã´²Ù×÷£º-->
-                <!--·Ö±ğÊÇ£ºbefore£¬after£¬after-returning,after-throwing,around-->
+                <!--æ‰¾åˆ°åŒ¹é…çš„æ–¹æ³•åå°±æ˜¯è®¾å®šåœ¨è¿™ä¸ªæ–¹æ³•çš„å„ä¸ªçŠ¶æ€è¦åˆ†åˆ«åšä»€ä¹ˆæ“ä½œï¼š-->
+                <!--åˆ†åˆ«æ˜¯ï¼šbeforeï¼Œafterï¼Œafter-returning,after-throwing,around-->
                 <aop:before pointcut-ref="businessService" method="do"/>
                 <aop:after pointcut-ref="businessService" method="do"/>
                 <aop:after-returning pointcut-ref="businessService" method="do"/>
@@ -155,14 +155,14 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
             </aop:aspect>
         </aop:config>
 
-        10. Í¨¹ı×¢½âĞÎÊ½µÄaop±à³Ì @AspectJ
-        10.1 ÔÚÅäÖÃÎÄ¼şÀï´ò¿ªaspectjÖ§³Ö£º
+        10. é€šè¿‡æ³¨è§£å½¢å¼çš„aopç¼–ç¨‹ @AspectJ
+        10.1 åœ¨é…ç½®æ–‡ä»¶é‡Œæ‰“å¼€aspectjæ”¯æŒï¼š
         <aop:aspectj-autoproxy/>
-        10.2 Èç¹ûÏë°ÑÒ»¸öÀàÉèÖÃ³Éaspect£¬ÔÚÀàÃûÇ°¼ÓÉÏ@Aspect
-        10.3 ¶¨ÒåÒ»¸öÇĞÈëµã£¬ÔÚÒ»¸ö·½·¨Ç°¼ÓÉÏ£º
+        10.2 å¦‚æœæƒ³æŠŠä¸€ä¸ªç±»è®¾ç½®æˆaspectï¼Œåœ¨ç±»åå‰åŠ ä¸Š@Aspect
+        10.3 å®šä¹‰ä¸€ä¸ªåˆ‡å…¥ç‚¹ï¼Œåœ¨ä¸€ä¸ªæ–¹æ³•å‰åŠ ä¸Šï¼š
             @Pointcut("execution(* com.*.*(..))")
             public void businessService(){}
-        10.4 ¶¨ÒåÒ»¸öadvice,¾ÍÊÇ¸øÕâ¸ö·½·¨ÅäÖÃÒ»¸ö¹æÔò£¬Âú×ã¸Ã¹æÔòµÄ·½·¨¶¼»á´¥·¢Õâ¸öadvice
+        10.4 å®šä¹‰ä¸€ä¸ªadvice,å°±æ˜¯ç»™è¿™ä¸ªæ–¹æ³•é…ç½®ä¸€ä¸ªè§„åˆ™ï¼Œæ»¡è¶³è¯¥è§„åˆ™çš„æ–¹æ³•éƒ½ä¼šè§¦å‘è¿™ä¸ªadvice
             @Before("businessService")
             public void doBeforeTask(){}
             @After("businessService()")
@@ -173,23 +173,23 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
             public void doAfterThrowingTask(Exception ex){}
             @Around("businessService()")
             public void doAroundTask(){}
-        10.5Ò²¿ÉÒÔµ¥¶ÀÎªÒ»¸öadviceÅäÖÃÒ»¸ö¹æÔò
+        10.5ä¹Ÿå¯ä»¥å•ç‹¬ä¸ºä¸€ä¸ªadviceé…ç½®ä¸€ä¸ªè§„åˆ™
             @Before("execution(* com.xyz.myapp.service.*.*(..))")
             public doBeforeTask(){}
 
-        11. Ê¹ÓÃjdbcÁ¬½ÓÊı¾İ¿â
-        11.1 ĞèÒªÔÚÅäÖÃÎÄ¼şÖĞÅäÖÃºÃdataSource£º
-        classÊÇorg.springframework.jdbc.datasource.DriverManagerDataSource
-        ·Ö±ğÒªÓĞ4¸öproperty£º
+        11. ä½¿ç”¨jdbcè¿æ¥æ•°æ®åº“
+        11.1 éœ€è¦åœ¨é…ç½®æ–‡ä»¶ä¸­é…ç½®å¥½dataSourceï¼š
+        classæ˜¯org.springframework.jdbc.datasource.DriverManagerDataSource
+        åˆ†åˆ«è¦æœ‰4ä¸ªpropertyï¼š
         <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
         <property name="url" value="jdbc:mysql://localhost:3306/TEST"/>
         <property name="username" value="root"/>
         <property name="password" value="password"/>
-        11.2 ÉèÖÃÊı¾İ·ÃÎÊdao½Ó¿Ú
-        ÉèÖÃ¸÷¸öÓëÊı¾İ¿â·ÃÎÊµÄ·½·¨£¬²ÎÊı
-        11.3 ÉèÖÃÊı¾İ±í¶ÔÓ¦µÄÊµÌåÀà
-        Ò»¸ö×Ö¶Î¶ÔÓ¦¸ÃÀàµÄÊôĞÔ£¬ÒÔ¼°Ã¿¸öÊôĞÔµÄget£¬set·½·¨
-        11.4 ÉèÖÃ½á¹û¼¯Ó³ÉäÊµÌåÀà
+        11.2 è®¾ç½®æ•°æ®è®¿é—®daoæ¥å£
+        è®¾ç½®å„ä¸ªä¸æ•°æ®åº“è®¿é—®çš„æ–¹æ³•ï¼Œå‚æ•°
+        11.3 è®¾ç½®æ•°æ®è¡¨å¯¹åº”çš„å®ä½“ç±»
+        ä¸€ä¸ªå­—æ®µå¯¹åº”è¯¥ç±»çš„å±æ€§ï¼Œä»¥åŠæ¯ä¸ªå±æ€§çš„getï¼Œsetæ–¹æ³•
+        11.4 è®¾ç½®ç»“æœé›†æ˜ å°„å®ä½“ç±»
         class StudentMapper implements RowMappers<Student>{
             public Student mapRow(ResuleSet rs,int rowNum) throws SQLExcaption{
                 Student student =new Student();
@@ -199,63 +199,63 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
                 return student;
             }
         }
-        11.5 dao½Ó¿ÚµÄÊµÏÖÀà
-        Õâ¸öÊµÏÖÀàĞèÒª2¸öÊôĞÔ£¬Ò»¸öÊÇÊı¾İÔ´£¬ÓÃÓÚÉèÖÃJdbcTemplate
-        µÚ¶ş¸ö¾ÍÊÇJdbcTemplate£º
+        11.5 daoæ¥å£çš„å®ç°ç±»
+        è¿™ä¸ªå®ç°ç±»éœ€è¦2ä¸ªå±æ€§ï¼Œä¸€ä¸ªæ˜¯æ•°æ®æºï¼Œç”¨äºè®¾ç½®JdbcTemplate
+        ç¬¬äºŒä¸ªå°±æ˜¯JdbcTemplateï¼š
         public void setDataSource(DataSource dataSource){
             this.dataSource=dataSource;
             this.jdbctemplate=new JdbcTemplate(dataSource);
         }
-        »¹ĞèÒªÊµÏÖ½Ó¿ÚµÄËùÓĞ·½·¨£º
-        ²åÈë£º
+        è¿˜éœ€è¦å®ç°æ¥å£çš„æ‰€æœ‰æ–¹æ³•ï¼š
+        æ’å…¥ï¼š
         public void create(String name,Integer age){
             String SQL="insert into Student (name,age) values(?,?)";
             jdbctemplate.update(SQL,name,age);
 
         }
-        ²éÑ¯£¬Ó³Éäµ½ÊµÌåÀà£º
+        æŸ¥è¯¢ï¼Œæ˜ å°„åˆ°å®ä½“ç±»ï¼š
         public Student getStudet(Integer id){
             String SQL="select * from Student where id =?";
-            //²ÎÊıĞèÒªÅª³ÉObjectÊı×éµÄĞÎÊ½£¬Èç¹ûÃ»ÓĞ²ÎÊı¾ÍÊ¡ÂÔÕâ¸ö²ÎÊı
+            //å‚æ•°éœ€è¦å¼„æˆObjectæ•°ç»„çš„å½¢å¼ï¼Œå¦‚æœæ²¡æœ‰å‚æ•°å°±çœç•¥è¿™ä¸ªå‚æ•°
             Student student=jdbctemplate.queryForObject(SQL,new Object[]{id},new StudentMapper());
             return student;
         }
 
-        12. ÊÂÎñ¹ÜÀí
-        Ö÷ÒªÊÇÉùÃ÷Ê½ÊÂÎñ¸úaopµÄ½áºÏ
-        12.1 ÅäÖÃÊÂÎñ¹ÜÀíÆ÷,ÅäÉÏ¹ØÁªµÄÊı¾İÔ´£¨Êı¾İ¿â£©
+        12. äº‹åŠ¡ç®¡ç†
+        ä¸»è¦æ˜¯å£°æ˜å¼äº‹åŠ¡è·Ÿaopçš„ç»“åˆ
+        12.1 é…ç½®äº‹åŠ¡ç®¡ç†å™¨,é…ä¸Šå…³è”çš„æ•°æ®æºï¼ˆæ•°æ®åº“ï¼‰
          <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
             <property name="dataSource" ref="dataSource"/>
          </bean>
-        12.2 ÅäÖÃÊÂÎñµÄÊôĞÔ£¬±ÈÈçÊÂÎñµÄ´«²¥£¬¸ôÀë¼¶±ğ£¬³¬Ê±»Ø¹ö
+        12.2 é…ç½®äº‹åŠ¡çš„å±æ€§ï¼Œæ¯”å¦‚äº‹åŠ¡çš„ä¼ æ’­ï¼Œéš”ç¦»çº§åˆ«ï¼Œè¶…æ—¶å›æ»š
         <tx:advice id="TestAdvice" transaction-manager="transactionManager">
             <tx:attributes>
-                ÕâÀïÅäÖÃµÄ·½·¨ÊÇ¶ş´ÎÉ¸Ñ¡£¬µÚÒ»´ÎÉ¸Ñ¡ÓÉaopµÄexecutionÊµÏÖ£¬´ıÊÔÑé
-                nameÊÇÆ¥ÅäµÄÃû×Ö£¬propagationÊÇ´«²¥»úÖÆ£¬isolationÊÇÊÂÎñ¸ôÀë¼¶±ğ£¬timeoutÊÇ³¬Ê±Ê±¼ä£¬rollback-for´¥·¢»Ø¹öµÄÒì³££¬no-rollback-for²»»á´¥·¢»Ø¹öµÄÒì³£
+                è¿™é‡Œé…ç½®çš„æ–¹æ³•æ˜¯äºŒæ¬¡ç­›é€‰ï¼Œç¬¬ä¸€æ¬¡ç­›é€‰ç”±aopçš„executionå®ç°ï¼Œå¾…è¯•éªŒ
+                nameæ˜¯åŒ¹é…çš„åå­—ï¼Œpropagationæ˜¯ä¼ æ’­æœºåˆ¶ï¼Œisolationæ˜¯äº‹åŠ¡éš”ç¦»çº§åˆ«ï¼Œtimeoutæ˜¯è¶…æ—¶æ—¶é—´ï¼Œrollback-forè§¦å‘å›æ»šçš„å¼‚å¸¸ï¼Œno-rollback-forä¸ä¼šè§¦å‘å›æ»šçš„å¼‚å¸¸
                 <tx:method name="re*" propagation="REQUIRED" read-only="true" isolation="DEFAULT"/>
             </tx:attributes>
         </tx:advice>
-        12.3 ÉèÖÃ½¨ÒéÇĞÈëµã£¬¾ÍÊÇÄÇĞ©·½·¨ĞèÒªÊ¹ÓÃÊÂÎñ
+        12.3 è®¾ç½®å»ºè®®åˆ‡å…¥ç‚¹ï¼Œå°±æ˜¯é‚£äº›æ–¹æ³•éœ€è¦ä½¿ç”¨äº‹åŠ¡
         <aop:config>
             <aop:pointcut id="services" expression="execution(public* com.*.*(..))"/>
             <aop:advisor pointcut-ref="services" advice-ref="TestAdvice"/>
         </aop:config>
-        12.4 »ùÓÚ×¢½âµÄÊÂÎñ £¿£¿
+        12.4 åŸºäºæ³¨è§£çš„äº‹åŠ¡ ï¼Ÿï¼Ÿ
 
         13. springmvc
-        modelÄ£ĞÍ£¬·â×°Ó¦ÓÃ³ÌĞòÊı¾İ£¬Ò»°ëÊÇÊµÌåÀà
-        viewÊÓÍ¼£¬Éú³Éä¯ÀÀÆ÷¿ÉÒÔ½âÊÍµÄhtmlÊä³ö
-        controller¿ØÖÆÆ÷£¬´¦ÀíÓÃ»§ÇëÇó£¬¹¹½¨ºÏÊÊµÄÄ£ĞÍ²¢´«µİµ½ÊÓÍ¼³ÊÏÖ
+        modelæ¨¡å‹ï¼Œå°è£…åº”ç”¨ç¨‹åºæ•°æ®ï¼Œä¸€åŠæ˜¯å®ä½“ç±»
+        viewè§†å›¾ï¼Œç”Ÿæˆæµè§ˆå™¨å¯ä»¥è§£é‡Šçš„htmlè¾“å‡º
+        controlleræ§åˆ¶å™¨ï¼Œå¤„ç†ç”¨æˆ·è¯·æ±‚ï¼Œæ„å»ºåˆé€‚çš„æ¨¡å‹å¹¶ä¼ é€’åˆ°è§†å›¾å‘ˆç°
 
-        ÊÕµ½httpÇëÇó£¬DispatcherServlet¾Í»á¸ù¾İHandlerMappingÑ¡Ôñ
-        ²¢µ÷ÓÃÕıÈ·µÄ¿ØÖÆÆ÷£¬¿ØÖÆÆ÷½ÓÊÜÇëÇó£¬¸ù¾İget»òÕßpostµ÷ÓÃÕıÈ·µÄ
-        service·½·¨£¬serviceÔÙµ÷ÓÃÒµÎñ²ãService²ã£¬´¦Àíºó£¬·µ»ØÕıÈ·µÄ
-        Ä£ĞÍÊı¾İ¸úÊÓÍ¼Ãû³Æ£¬DispatcherServlet»á´ÓViewResolver»ñÈ¡°ïÖú£¬
-        ÎªÇëÇóÑ°ÕÒÕıÈ·µÄÊÓÍ¼£¬È·¶¨ÊÓÍ¼ºó£¬DispatcherServlet»á½«Ä£ĞÍÊı¾İ
-        ´«µİ¸øÊÓÍ¼£¬×îºó³ÊÏÖÔÚä¯ÀÀÆ÷ÖĞ¡£
+        æ”¶åˆ°httpè¯·æ±‚ï¼ŒDispatcherServletå°±ä¼šæ ¹æ®HandlerMappingé€‰æ‹©
+        å¹¶è°ƒç”¨æ­£ç¡®çš„æ§åˆ¶å™¨ï¼Œæ§åˆ¶å™¨æ¥å—è¯·æ±‚ï¼Œæ ¹æ®getæˆ–è€…postè°ƒç”¨æ­£ç¡®çš„
+        serviceæ–¹æ³•ï¼Œserviceå†è°ƒç”¨ä¸šåŠ¡å±‚Serviceå±‚ï¼Œå¤„ç†åï¼Œè¿”å›æ­£ç¡®çš„
+        æ¨¡å‹æ•°æ®è·Ÿè§†å›¾åç§°ï¼ŒDispatcherServletä¼šä»ViewResolverè·å–å¸®åŠ©ï¼Œ
+        ä¸ºè¯·æ±‚å¯»æ‰¾æ­£ç¡®çš„è§†å›¾ï¼Œç¡®å®šè§†å›¾åï¼ŒDispatcherServletä¼šå°†æ¨¡å‹æ•°æ®
+        ä¼ é€’ç»™è§†å›¾ï¼Œæœ€åå‘ˆç°åœ¨æµè§ˆå™¨ä¸­ã€‚
 
-        13.1 ÅäÖÃDispatcherServlet
-        ĞèÒªÔÚweb.xmlÖĞÅäÖÃ£¬°ÑËùÓĞÇëÇó¶¼·Ö·¢¸øDispatcherServlet
+        13.1 é…ç½®DispatcherServlet
+        éœ€è¦åœ¨web.xmlä¸­é…ç½®ï¼ŒæŠŠæ‰€æœ‰è¯·æ±‚éƒ½åˆ†å‘ç»™DispatcherServlet
         <servlet>
             <servlet-name>CeshiWeb</servlet-name>
             <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -264,37 +264,38 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
             <servlet-name>CeshiWeb</servlet-name>
             <url-pattern>/</url-pattern>
         </servlet-mapping>
-        13.2 ³ÌĞò»áÈ¥¼ÓÔØwebapp/WEB-INFÏÂµÄxxx-servlet.xmlµÄÄÚÈİ
-        Èç¹ûÏëĞŞ¸ÄÕâ¸öÄ¬ÈÏµÄÎ»ÖÃ£¬¿ÉÒÔÔÚweb.xmlÅäÖÃºÃ£º
+        13.2 ç¨‹åºä¼šå»åŠ è½½webapp/WEB-INFä¸‹çš„xxx-servlet.xmlçš„å†…å®¹
+        å¦‚æœæƒ³ä¿®æ”¹è¿™ä¸ªé»˜è®¤çš„ä½ç½®ï¼Œå¯ä»¥åœ¨web.xmlé…ç½®å¥½ï¼š
         <context-param>
             <param-name>contextConfigLocation</param-name>
             <param-value>/WEB-INF/HelloWeb-servlet.xml</param-value>
         </context-param>
+        <!--å½“webå®¹å™¨å¯åŠ¨æ—¶ï¼Œè‡ªåŠ¨è£…é…context-servlet.xmlçš„é…ç½®ä¿¡æ¯ -->
         <listener>
             <listener-class>
                 org.springframework.web.context.ContextLoaderListener
             </listener-class>
         </listener>
-        13.3 ÅäÖÃxxx-servlet.xml
-        ´ò¿ª°üÉ¨Ãè£¬ÔÊĞíÊ¹ÓÃ×¢ÊÍ@ControllerµÈ£º
+        13.3 é…ç½®xxx-servlet.xml
+        æ‰“å¼€åŒ…æ‰«æï¼Œå…è®¸ä½¿ç”¨æ³¨é‡Š@Controllerç­‰ï¼š
         <context:component-scan base-package="ceshi"/>
-        ¶¨ÒåviewResolver£¬ÓÃÓÚ·Ö·¢ÊÓÍ¼£ºÏÂÁĞ¹æÔòÊÇÒ»¸öhelloµÄÂß¼­ÊÓÍ¼»á±»·Ö·¢µ½/WEB-INF/hello.jsp
+        å®šä¹‰viewResolverï¼Œç”¨äºåˆ†å‘è§†å›¾ï¼šä¸‹åˆ—è§„åˆ™æ˜¯ä¸€ä¸ªhelloçš„é€»è¾‘è§†å›¾ä¼šè¢«åˆ†å‘åˆ°/WEB-INF/hello.jsp
         <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
             <property name="prefix" value="/WEB-INF/jsp"/>
             <property name="suffix" value=".jsp"/>
         </bean>
-        13.4 ¶¨Òå¿ØÖÆÆ÷
+        13.4 å®šä¹‰æ§åˆ¶å™¨
         @Controller
         @RequestMapping("/hello")
         public class Hello{
             @RequestMapping(value="/hello" ,method=RequestMethod.GET)
             public String print(ModelMap model){
-                //Õâ¸öÊôĞÔ½«»á±»ÊÓÍ¼·ÃÎÊ²¢ÏÔÊ¾×îÖÕµÄ½á¹û
+                //è¿™ä¸ªå±æ€§å°†ä¼šè¢«è§†å›¾è®¿é—®å¹¶æ˜¾ç¤ºæœ€ç»ˆçš„ç»“æœ
                 model.addAttribute("message","Hello Spring MVC");
                 return "hello";
             }
         }
-        13.5 ±àĞ´Ò»¸öjspÊÓÍ¼
+        13.5 ç¼–å†™ä¸€ä¸ªjspè§†å›¾
         <html>
             <head>
                 <title>Hello Spring MVC</title>
@@ -304,18 +305,77 @@ beanÊÇÔõÃ´±»³õÊ¼»¯ºÍÊ¹ÓÃµÄ£¿
             </body>
         </html>
 
-        13.4 ·Ö·¢Ò»¸ö¾²Ì¬Ò³ÃæÇëÇó
+        13.4 åˆ†å‘ä¸€ä¸ªé™æ€é¡µé¢è¯·æ±‚
         @RequestMapping(value = "/staticPage", method = RequestMethod.GET)
         public String redirect() {
             return "redirect:/pages/final.htm";
         }
 
-        xxx-servlet.xml±ØĞèÒªÓĞ£ºmappingÊÇÓ³ÉäµÄurl£¬locationÊÇ¾ßÌå¾²Ì¬ÎÄ¼ş´æ´¢µÄÎ»ÖÃ
+        å°±ç®—é…ç½®äº†é™æ€èµ„æºè½¬å‘ï¼Œè¿˜æ˜¯ä¸èƒ½ç›´æ¥è®¿é—®WEB-INFä¸­çš„æ–‡ä»¶ï¼Œéœ€è¦æŠŠé™æ€æ–‡ä»¶æ‹¿åˆ°webappä¸‹ã€‚
+        xxx-servlet.xmlå¿…éœ€è¦æœ‰ï¼šmappingæ˜¯æ˜ å°„çš„urlï¼Œlocationæ˜¯å…·ä½“é™æ€æ–‡ä»¶å­˜å‚¨çš„ä½ç½®
         <mvc:resources mapping="/pages/**" location="/WEB-INF/pages/"/>
 
-        13.5 ÉèÖÃÈÕÖ¾£º
+        13.5 è®¾ç½®æ—¥å¿—ï¼š
         static Logger log =Logger.getLogger(MainApp.class.getName());
         log.info("");
 
-        ÉèÖÃlog4j.properties
-        log4j.appender.FILE.File=C:\\log.out
+        è®¾ç½®log4j.properties
+        ### è®¾ç½®###
+        log4j.rootLogger = debug,stdout,D,E
+
+        ### è¾“å‡ºä¿¡æ¯åˆ°æ§åˆ¶æŠ¬ ###
+        log4j.appender.stdout = org.apache.log4j.ConsoleAppender
+        log4j.appender.stdout.Target = System.out
+        log4j.appender.stdout.layout = org.apache.log4j.PatternLayout
+        log4j.appender.stdout.layout.ConversionPattern = [%-5p] %d{yyyy-MM-dd HH:mm:ss,SSS} method:%l%n%m%n
+
+        ### è¾“å‡ºDEBUG çº§åˆ«ä»¥ä¸Šçš„æ—¥å¿—åˆ°=E://logs/error.log ###
+        log4j.appender.D = org.apache.log4j.DailyRollingFileAppender
+        log4j.appender.D.File = E://logs/log.log
+        log4j.appender.D.Append = true
+        log4j.appender.D.Threshold = DEBUG 
+        log4j.appender.D.layout = org.apache.log4j.PatternLayout
+        log4j.appender.D.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+        ### è¾“å‡ºERROR çº§åˆ«ä»¥ä¸Šçš„æ—¥å¿—åˆ°=E://logs/error.log ###
+        log4j.appender.E = org.apache.log4j.DailyRollingFileAppender
+        log4j.appender.E.File =E://logs/error.log 
+        log4j.appender.E.Append = true
+        log4j.appender.E.Threshold = ERROR 
+        log4j.appender.E.layout = org.apache.log4j.PatternLayout
+        log4j.appender.E.layout.ConversionPattern = %-d{yyyy-MM-dd HH:mm:ss}  [ %t:%r ] - [ %p ]  %m%n
+
+        æ•´åˆéƒ½springmvcä¸­
+         <context-param>
+        <param-name>log4jConfigLocation</param-name>
+        <param-value>/resources/log4j.properties</param-value>
+        </context-param>
+        <!--log4jç›‘å¬-->
+        <listener>
+            <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
+        </listener>
+
+        14.mybatis  
+        http://www.mybatis.org/mybatis-3/zh/getting-started.html
+
+        14.1 é…ç½®æœ€åŸºç¡€çš„sqlSessionFactory
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+        <configuration>
+        <environments default="development">
+            <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+            </environment>
+        </environments>
+        <mappers>
+            <mapper resource="org/mybatis/example/BlogMapper.xml"/>
+        </mappers>
+        </configuration>
