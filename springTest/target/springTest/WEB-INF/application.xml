@@ -20,6 +20,19 @@
         <property name="suffix" value=".jsp"/>
     </bean>
 
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource">
+        <property name="driverClassName" value=""/>
+        <property name="url" value=""/>
+        <property name="username" value=""/>
+        <property name="password" value=""/>
+    </bean>
+
+    <!--<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataBase"/>-->
+        <!--<property name="mapperLocations" ref=""/>/-->
+        <!--&lt;!&ndash;<property name=/>&ndash;&gt;-->
+    <!--</bean>-->
+
     <!--就算配置了静态资源转发，还是不能直接访问WEB-INF中的文件，需要把静态文件拿到webapp下。-->
     <mvc:resources mapping="/pages/**" location="/pages/"/>
 

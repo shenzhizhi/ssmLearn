@@ -16,6 +16,7 @@ public class ControllerTest {
     @RequestMapping(value ="/demo")
     public String demo(ModelMap map, HttpServletRequest request){
         log.error("error!!!!!");
+
         String name =request.getParameter("name");
         map.addAttribute("name",name);
         System.out.println("用户输入的名字是："+name);
