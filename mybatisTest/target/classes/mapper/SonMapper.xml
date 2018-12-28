@@ -2,11 +2,17 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="SonDao">
-    <select id="selectSon" resultType="Son">
-        select * from Son where name = #{name}
-    </select>
-    <insert id="insertSon" parameterType="Son">
-        insert into Son (name,age) values(#{name},#{age})
-    </insert>
+<mapper namespace="dao.SonDao">
+<select id="select" resultMap="son">
+    select * from son where name = #{name}
+</select>
+<insert id="insert" parameterType="son">
+    insert into son (name,age) values(#{name},#{age})
+</insert>
+    <!--resultMap可以将结果注入到构造函数中，-->
+    <resultMap id="son" type="son">
+        <!--id跟result都是映射到属性的，区别在于缓存跟内嵌的结果映射很有用。-->
+        <result property="age" column="age"/>
+        <result property="name" column="name"/>
+    </resultMap>
 </mapper>

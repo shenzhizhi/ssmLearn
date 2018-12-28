@@ -1,3 +1,5 @@
+import dao.SonDao;
+import entity.Son;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.ibatis.session.SqlSessionFactory;
@@ -15,18 +17,19 @@ public class Ceshi {
             SqlSession sqlSession=sqlSessionFactory.openSession();
             SonDao sonDao=sqlSession.getMapper(SonDao.class);
 
-            Son son1 =new Son();
-            son1.setName("jianzhi");
-            son1.setAge(24);
-            sonDao.insert(son1);
-
-
+//            Son son1 =new Son();
+//            son1.setName("jianzhi");
+//            son1.setAge(24);
+//            sonDao.insert(son1);
+            Son son =new Son();
+            son=sonDao.select("qiuwei");
+            System.out.println(son.toString());
             sqlSession.commit();
             sqlSession.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        https://www.cnblogs.com/yyy88168/p/3201238.html
+
     }
 }

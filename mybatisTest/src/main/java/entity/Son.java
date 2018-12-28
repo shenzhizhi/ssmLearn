@@ -1,3 +1,5 @@
+package entity;
+
 public class Son {
     private String name;
     private int age;

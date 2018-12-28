@@ -364,6 +364,11 @@ bean是怎么被初始化和使用的？
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
         <configuration>
+        <!-- 可以在这里配置别名，把那些长得全限定类名都配置到这里 -->
+        <typeAliases>
+        <typeAlias type="Son" alias="son"/>
+        </typeAliases>
+
         <environments default="development">
             <environment id="development">
             <transactionManager type="JDBC"/>
@@ -379,3 +384,46 @@ bean是怎么被初始化和使用的？
             <mapper resource="org/mybatis/example/BlogMapper.xml"/>
         </mappers>
         </configuration>
+        
+        14.2 配置mapper.xml文件
+        
+
+        <?xml version="1.0" encoding="UTF-8" ?>
+        <!DOCTYPE mapper
+                PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+                "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+        <!-- 这里的namaspace是用来绑定了dao接口的，需要写dao接口的全限定名称，可以在typeAlias中配置别名 -->
+        <mapper namespace="SonDao">
+        一般使用的是select update delete insert resultMap几个语句.
+        这些语句的属性一般使用的是：
+        id：匹配dao接口中的方法名
+        parameterType：传入的参数的完全限定类型，或者别名
+        resultType：查询返回的完全限定类型，或者别名
+        resultMap:单独拎出来处理属性跟字段名不匹配的问题
+        <select id="select" resultType="Son">
+            select * from Son where name = #{name}
+        </select>
+        <insert id="insert" parameterType="Son">
+            insert into Son (name,age) values(#{name},#{age})
+        </insert>
+
+        <!-- resultMap是一种比较优雅的形式来解决类属性跟表字段名字不匹配的问题，当然也可以用sql自带的as -->
+        resultMap还能解决一对多，多对多的问题，这个问题可以慢慢研究，先
+        <resultMap id="son" type="son">
+        <!--id跟result都是映射到属性的，区别在于缓存跟内嵌的结果映射很有用。-->
+        <result property="age" column="age"/>
+        <result property="name" column="name"/>
+        </resultMap>
+        </mapper>
+
+        14.3 dao其实就是一个工具类，与业务直接接触的工具类
+        public interface SonDao{
+            void insert(Son son);
+            Son select(String name);
+        }
+
+        14.4 在业务中
+        如果通过spring管理bean，就可以在service层注入dao的bean
+        
+        14.5 通过注解形式处理映射，把mybatis.xml中的mapper映射改成class=dao,在dao的各个方法使用@Select@insert 等
+        如果需要注入参数，一个参数可以直接注入，多个参数需要使用@param
