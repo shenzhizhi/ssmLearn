@@ -12,18 +12,25 @@
 
     <context:annotation-config/>
 
-    <bean id="daoimpl" class="ceshi.DaoImpl">
-        <property name="dataSource" ref="dataBase"/>
-    </bean>
-    <bean id="hello" class="ceshi.HelloWorld"/>
-    <bean id="aop" class="ceshi.AopTest"/>
-
-    <bean id="dataBase" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
         <property name="driverClassName" value="${driverClassName}"/>
         <property name="url" value="${url}"/>
         <property name="username" value="${name}"/>
         <property name="password" value="${password}"/>
     </bean>
+
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="mapperLocations" value="mapper/*.xml"/>
+    </bean>
+
+
+    <bean id="sonDao" class="org.mybatis.spring.mapper.MapperFactoryBean">
+        <property name="mapperInterface" value="ceshi.dao.Dao"/>
+        <property name="sqlSessionFactory" ref="sqlSessionFactory"/>
+    </bean>
+
+
 
 
 
