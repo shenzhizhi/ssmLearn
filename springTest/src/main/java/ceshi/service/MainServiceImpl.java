@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class MainServiceImpl implements MainService {
-    @Autowired
-    private Dao dao;
 
-//    public void setDao(Dao dao) {
-//        this.dao = dao;
-//    }
+    private Dao dao;
+    @Autowired
+    public void setDao(Dao dao) {
+        this.dao = dao;
+    }
 
     @Override
     public son select(String name) {

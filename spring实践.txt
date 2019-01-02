@@ -1,4 +1,4 @@
-bean是怎么被初始化和使用的？
+﻿bean是怎么被初始化和使用的？
     1：bean的配置信息，有3种不同的配置：
         xml的配置bean
         基于注解的配置
@@ -423,7 +423,15 @@ bean是怎么被初始化和使用的？
         }
 
         14.4 在业务中
-        如果通过spring管理bean，就可以在service层注入dao的bean
+        如果通过spring管理bean，就可以在service层注入dao的bean，service层是一些方法的接口，跟dao很像，需要有一个实现类来实现
+       这些service层接口，service层需要使用@Service，spring可以将其注入到controller层。以供调用。
         
         14.5 通过注解形式处理映射，把mybatis.xml中的mapper映射改成class=dao,在dao的各个方法使用@Select@insert 等
         如果需要注入参数，一个参数可以直接注入，多个参数需要使用@param
+
+	15. 制作一个展示商品信息的项目，可以新增，修改，删除
+	--https://github.com/codingXiaxw/ssm#1%E5%AE%9E%E7%8E%B0%E5%95%86%E5%93%81%E7%9A%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA
+        	
+
+
+

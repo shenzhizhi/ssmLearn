@@ -1,0 +1,30 @@
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+
+<web-app>
+
+    <!--github例子-->
+    <!--https://github.com/codingXiaxw/ssm#1%E5%AE%9E%E7%8E%B0%E5%95%86%E5%93%81%E7%9A%84%E5%88%97%E8%A1%A8%E5%B1%95%E7%A4%BA-->
+
+
+  <display-name>Archetype Created Web Application</display-name>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>application.xml</param-value>
+    </context-param>
+    <servlet>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
+        <!--<init-param>
+            <param-name>contextConfigLocation</param-name>
+            <param-value>mvc.xml</param-value>
+        </init-param>-->
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>DispatcherServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>
