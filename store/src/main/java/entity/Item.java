@@ -4,10 +4,23 @@ public class Item {
     private int itemID;
     private String itemName;
     private ItemClass itemClass;
-    private int stock;
+    private Integer stock;
     private float price;
     private String info;
     private String imagePath;
+
+    @Override
+    public String toString() {
+        return "Item{" +
+                "itemID=" + itemID +
+                ", itemName='" + itemName + '\'' +
+                ", itemClass=" + itemClass +
+                ", stock=" + stock +
+                ", price=" + price +
+                ", info='" + info + '\'' +
+                ", imagePath='" + imagePath + '\'' +
+                '}';
+    }
 
     public int getItemID() {
         return itemID;

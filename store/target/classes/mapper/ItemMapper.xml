@@ -5,23 +5,20 @@
     <resultMap id="item" type="item">
         <id property="itemID" column="item_id"/>
         <result property="itemName" column="item_name"/>
-        <association property="itemClass" javaType="itemClass">
-            <id property="ClassID" column="item_class" javaType="entity.ItemClass"/>
-            <result property="ItemClass" column="itemClass_name" javaType="entity.ItemClass"/>
-        </association>
+        <result property="itemClass" column="item_class"/>
         <result property="stock" column="item_stick"/>
         <result property="price" column="item_price"/>
         <result property="info" column="item_info"/>
         <result property="imagePath" column="item_imagepath"/>
     </resultMap>
     <select id="getItems" resultMap="item">
-        SELECT t1.item_id,t1.item_name,t1.item_class,t2.itemClass_name,t1.item_stock,t1.item_price,t1.item_info,t1.item_imagepath
-        from item t1,itemclass t2
-        WHERE t1.item_class=t2.itemClass_id
+        SELECT *
+        from item
+        <where>
             <if test="ClassID!=null">
-                and item_class =#{itemclass}
+                and item_class =#{item_class}
             </if>
-
+        </where>
     </select>
 
     <select id="getItem" resultType="item">
