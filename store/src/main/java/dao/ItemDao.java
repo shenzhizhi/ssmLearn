@@ -2,6 +2,7 @@ package dao;
 
 import entity.Item;
 import entity.ItemClass;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -9,10 +10,9 @@ public interface ItemDao {
 
     /**
      * 获取该类别下所有商品
-     * @param ClassID
      * @return 商品列表
      */
-    List<Item> getItems(int ClassID);
+    List<Item> getItems(@Param("itemClass") int itemclassid);
 
     /**
      * 根据id或者商品名或者2个属性获取商品
@@ -20,7 +20,7 @@ public interface ItemDao {
      * @param itemName
      * @return 商品
      */
-    Item getItem (int itemID,String itemName);
+    Item getItem (@Param("itemID") Integer itemID,@Param("itemName") String itemName);
 
 
     /**
@@ -36,14 +36,14 @@ public interface ItemDao {
      *
      * @param itemID 商品id
      * @param itemName 商品名
-     * @param itemClass 商品类型
+     * @param itemClassID 商品类型id
      * @param stock 库存
      * @param price 价格
      * @param itemInfo 商品信息
-     * @param imagePAth 图片路径
+     * @param imagePath 图片路径
      * @return 更新行数
      */
-    int updateItem(int itemID,String itemName, ItemClass itemClass, int stock, float price, String itemInfo, String imagePAth );
+    int updateItem(@Param("itemID") Integer itemID,@Param("itemName") String itemName, @Param("itemClassID") Integer itemClassID, @Param("stock") Integer stock,@Param("price") float price, @Param("itemInfo") String itemInfo,@Param("imagePath") String imagePath );
 
     /**
      * 删除该商品信息

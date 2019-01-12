@@ -1,14 +1,14 @@
 package entity;
 
 public class ItemClass {
-    private int ClassID;
+    private Integer ClassID;
     private String ItemClass;
 
-    public int getClassID() {
+    public Integer getClassID() {
         return ClassID;
     }
 
-    public void setClassID(int classID) {
+    public void setClassID(Integer classID) {
         ClassID = classID;
     }
 

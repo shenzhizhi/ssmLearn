@@ -1,20 +1,29 @@
 package entity;
 
 public class Item {
-    private int itemID;
+    private Integer itemID;
     private String itemName;
-    private ItemClass itemClass;
+    private Integer itemClassid;
     private Integer stock;
     private float price;
     private String info;
     private String imagePath;
+
+    public Item(String itemName, Integer itemClassid, Integer stock, float price, String info, String imagePath) {
+        this.itemName = itemName;
+        this.itemClassid = itemClassid;
+        this.stock = stock;
+        this.price = price;
+        this.info = info;
+        this.imagePath = imagePath;
+    }
 
     @Override
     public String toString() {
         return "Item{" +
                 "itemID=" + itemID +
                 ", itemName='" + itemName + '\'' +
-                ", itemClass=" + itemClass +
+                ", itemClassid=" + itemClassid +
                 ", stock=" + stock +
                 ", price=" + price +
                 ", info='" + info + '\'' +
@@ -22,11 +31,11 @@ public class Item {
                 '}';
     }
 
-    public int getItemID() {
+    public Integer getItemID() {
         return itemID;
     }
 
-    public void setItemID(int itemID) {
+    public void setItemID(Integer itemID) {
         this.itemID = itemID;
     }
 
@@ -38,19 +47,19 @@ public class Item {
         this.itemName = itemName;
     }
 
-    public ItemClass getItemClass() {
-        return itemClass;
+    public Integer getItemClassid() {
+        return itemClassid;
     }
 
-    public void setItemClass(ItemClass itemClass) {
-        this.itemClass = itemClass;
+    public void setItemClassid(Integer itemClassid) {
+        this.itemClassid = itemClassid;
     }
 
-    public int getStock() {
+    public Integer getStock() {
         return stock;
     }
 
-    public void setStock(int stock) {
+    public void setStock(Integer stock) {
         this.stock = stock;
     }
 

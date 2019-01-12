@@ -2,38 +2,56 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.ItemDao">
+
+    <!--type是必要属性，做映射类名指定-->
     <resultMap id="item" type="item">
         <id property="itemID" column="item_id"/>
         <result property="itemName" column="item_name"/>
-        <association property="itemClass" javaType="itemClass">
-            <id property="ClassID" column="item_class" javaType="entity.ItemClass"/>
-            <result property="ItemClass" column="itemClass_name" javaType="entity.ItemClass"/>
-        </association>
-        <result property="stock" column="item_stick"/>
+        <result property="itemClassid" column="item_class"/>
+        <result property="stock" column="item_stock"/>
         <result property="price" column="item_price"/>
         <result property="info" column="item_info"/>
         <result property="imagePath" column="item_imagepath"/>
+      <!--  javaType是必需的，如果没有就会报错
+        <association property="itemClass" javaType="itemClass">
+            <id property="ClassID" column="itemClass_id"/>
+            <result property="ItemClass" column="itemClass_name"/>
+        </association>-->
     </resultMap>
-    <select id="getItems" resultMap="item">
-        SELECT t1.item_id,t1.item_name,t1.item_class,t2.itemClass_name,t1.item_stock,t1.item_price,t1.item_info,t1.item_imagepath
-        from item t1,itemclass t2
-        WHERE t1.item_class=t2.itemClass_id
-            <if test="ClassID!=null">
-                and item_class =#{itemclass}
-            </if>
 
+    <select id="getItems" resultMap="item" >
+        SELECT t1.*
+        from item t1,itemclass t2
+        <where>
+            t1.item_class=t2.itemClass_id
+            <if test="itemClass!=null">
+                and item_class =#{itemClass}
+            </if>
+        </where>
     </select>
 
     <select id="getItem" resultType="item">
-
+        select * from item
+        <where>
+            <if test="itemID!=null">
+                and item_class=#{itemID}
+            </if>
+            <if test="itemName!=null">
+                and item_name=#{itemName}
+            </if>
+        </where>
     </select>
 
-    <insert id="addItem" parameterType="item">
 
+    <!--一个insert语句弄一天，第一个括号里的字段不需要加双引号-->
+    <!--使用mysql的自增功能。keyProperty="item_id" -->
+    <insert id="addItem" parameterType="item"  keyProperty="item_id">
+      insert into item (item_name, item_class, item_stock, item_price, item_info, item_imagepath) VALUES
+          (#{itemName},#{itemClassid},#{stock},#{price},#{info},#{imagePath})
     </insert>
 
     <!--在dao中每个参数添加注解-->
-    <update id="updateItem">
+    <update id="updateItem" parameterType="">
 
     </update>
     
