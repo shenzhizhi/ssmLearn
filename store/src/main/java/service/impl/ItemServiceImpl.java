@@ -36,12 +36,12 @@ public class ItemServiceImpl implements ItemService {
     }
 
     @Override
-    public int updateItem(int itemID, String itemName, int itemClassID, int stock, int price, String itemInfo, String imagePath) {
+    public int updateItem(int itemID, String itemName, int itemClassID, int stock, float price, String itemInfo, String imagePath) {
         return itemDao.updateItem(itemID,itemName,itemClassID,stock,price,itemInfo,imagePath);
     }
 
     @Override
-    public int deleteItem(Item item) {
-        return itemDao.deleteItem(item);
+    public int deleteItem(int itemid) {
+        return itemDao.deleteItem(itemid);
     }
 }

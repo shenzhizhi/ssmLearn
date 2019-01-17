@@ -1,6 +1,7 @@
 package dao;
 
 import entity.ItemClass;
+import org.apache.ibatis.annotations.Param;
 
 public interface ItemClassDao {
 
@@ -9,12 +10,7 @@ public interface ItemClassDao {
      * @param classID 种类id
      * @return 种类
      */
-    ItemClass getItemClass(int classID);
+    String getItemClass(@Param("classID") int classID);
 
-    /**
-     * 设置商品种类
-     * @param itemClass 种类
-     * @return 影响行数
-     */
-    int setItemClass(ItemClass itemClass);
+
 }

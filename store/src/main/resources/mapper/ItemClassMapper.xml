@@ -3,11 +3,10 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="dao.ItemClassDao">
 
-    <select id="getItemClass" resultType="itemClass">
-
+    <!--select一定要有result。可以是resultType也可以是resultMap-->
+    <select id="getItemClass" resultType="java.lang.String">
+        select itemClass_name from itemclass where itemClass_id=#{classID}
     </select>
 
-    <insert id="setItemClass" parameterType="itemClass">
 
-    </insert>
 </mapper>

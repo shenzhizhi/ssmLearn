@@ -1,7 +1,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="dao.ItemDao">
+<mapper namespace="itemDao">
 
     <!--type是必要属性，做映射类名指定-->
     <resultMap id="item" type="item">
@@ -19,18 +19,15 @@
         </association>-->
     </resultMap>
 
+
     <select id="getItems" resultMap="item" >
         SELECT t1.*
-        from item t1,itemclass t2
-        <where>
-            t1.item_class=t2.itemClass_id
-            <if test="itemClass!=null">
-                and item_class =#{itemClass}
-            </if>
-        </where>
+        from item t1
+      where t1.item_id=#{itemClass}
     </select>
 
- <!--   <select id="getItem" resultType="item">
+
+    <select id="getItem" resultMap="item">
         select * from item
         <where>
             <if test="itemID!=null">
@@ -40,24 +37,32 @@
                 and item_name=#{itemName}
             </if>
         </where>
-    </select>-->
-
+    </select>
 
     <!--一个insert语句弄一天，第一个括号里的字段不需要加双引号-->
-    <!--使用mysql的自增功能，useGeneratedKey  useGeneratedKeys="true"-->
+    <!--使用mysql的自增功能。keyProperty="item_id" -->
     <insert id="addItem" parameterType="item"  keyProperty="item_id">
       insert into item (item_name, item_class, item_stock, item_price, item_info, item_imagepath) VALUES
           (#{itemName},#{itemClassid},#{stock},#{price},#{info},#{imagePath})
     </insert>
 
     <!--在dao中每个参数添加注解-->
-    <update id="updateItem">
-
+    <!--set会自动把最后的，去掉-->
+    <update id="updateItem" parameterType="item">
+      update item
+        <set>
+            <if test="itemName!=null">item_name=#{itemName},</if>
+            <if test="itemClassID!=null">item_class=#{itemClassID},</if>
+            <if test="stock!=null">item_stock=#{stock},</if>
+            <if test="price!=null">item_price=#{price},</if>
+            <if test="itemInfo!=null">item_info=#{itemInfo},</if>
+            <if test="imagePath!=null">item_imagepath=#{imagePath},</if>
+        </set>
+        where item_id=#{itemID}
     </update>
     
-    <delete id="deleteItem" parameterType="item">
-
+    <delete id="deleteItem">
+      delete from item where item_id=#{itemID}
     </delete>
-
 
 </mapper>

@@ -9,6 +9,16 @@ public class Item {
     private String info;
     private String imagePath;
 
+    public Item(Integer itemID, String itemName, Integer itemClassid, Integer stock, float price, String info, String imagePath) {
+        this.itemID = itemID;
+        this.itemName = itemName;
+        this.itemClassid = itemClassid;
+        this.stock = stock;
+        this.price = price;
+        this.info = info;
+        this.imagePath = imagePath;
+    }
+
     public Item(String itemName, Integer itemClassid, Integer stock, float price, String info, String imagePath) {
         this.itemName = itemName;
         this.itemClassid = itemClassid;

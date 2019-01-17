@@ -13,7 +13,7 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
 
 
     <!--扫描包中的@controller @Service 等类-->
-    <context:component-scan base-package="service,controller,dao"/>
+    <context:component-scan base-package="service,controller"/>
     <!--配置自动注入@AutoWired，注入前调用方法@PostConstruct，bean销毁时调用方法@PreDestroy-->
     <context:annotation-config/>
     <!--mvc相关注解，@RequestMapping @RequestBody-->
@@ -32,16 +32,16 @@ http://www.springframework.org/schema/context http://www.springframework.org/sch
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="mapper/**.xml"/>
         <property name="configLocation" value="mybatisConfig.xml"/>
+        <property name="typeAliasesPackage" value="entity"/>
     </bean>
 
-    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
         <!-- 扫描所有dao接口的实现，加入到ioc容器中  -->
         <property name="basePackage" value="dao"/>
         <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
     </bean>
-    <!--<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
         <property name="prefix" value="jsp/"/>
         <property name="suffix" value=".jsp"/>
     </bean>
--->
 </beans>

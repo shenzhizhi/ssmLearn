@@ -47,9 +47,9 @@ public interface ItemDao {
 
     /**
      * 删除该商品信息
-     * @param item
+     * @param itemID
      * @return 影响行数
      */
-    int deleteItem(Item item);
+    int deleteItem(@Param("itemID") int itemID);
 
 }
