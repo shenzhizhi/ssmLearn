@@ -185,7 +185,6 @@ log4j基本依赖：log4j
         <property name="dataSource" ref="dataSource"/>
         <property name="mapperLocations" value="mapper/**.xml"/>
         <property name="configLocation" value="mybatisConfig.xml"/>
-        <property name="typeAliasesPackage" value="entity"/>
     </bean>
 （6）配置mybatis关于dao接口的扫描
 <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">

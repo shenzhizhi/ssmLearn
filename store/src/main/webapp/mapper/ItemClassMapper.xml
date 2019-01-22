@@ -1,0 +1,12 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.ItemClassDao">
+
+    <!--select一定要有result。可以是resultType也可以是resultMap-->
+    <select id="getItemClass" resultType="java.lang.String">
+        select itemClass_name from itemclass where itemClass_id=#{classID}
+    </select>
+
+
+</mapper>

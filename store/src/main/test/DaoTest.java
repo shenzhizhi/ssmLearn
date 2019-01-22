@@ -14,7 +14,7 @@ import java.util.List;
 
 public class DaoTest {
 
-    private ApplicationContext context=new ClassPathXmlApplicationContext("application.xml");
+   /* private ApplicationContext context=new ClassPathXmlApplicationContext("application.xml");
     private ItemServiceImpl impl=(ItemServiceImpl) context.getBean("itemServiceImpl");
     private ItemClassServiceImpl itemClassServiceImpl=(ItemClassServiceImpl)context.getBean("itemClassServiceImpl");
     @Test
@@ -53,5 +53,5 @@ public class DaoTest {
     @Test
     public void ceshigetItemClassName(){
         System.out.println(itemClassServiceImpl.getItemClassName(1));
-    }
+    }*/
 }

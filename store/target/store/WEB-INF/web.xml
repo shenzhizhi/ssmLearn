@@ -9,25 +9,41 @@
 
 
   <display-name>Archetype Created Web Application</display-name>
-    <context-param>
-        <param-name>contextConfigLocation</param-name>
-        <param-value>application.xml</param-value>
-    </context-param>
+  <!--  <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.jpg</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.gif</url-pattern>
+    </servlet-mapping>
+
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>*.css</url-pattern>
+    </servlet-mapping>
+-->
+
     <servlet>
         <servlet-name>DispatcherServlet</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <!--<init-param>
+        <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>mvc.xml</param-value>
-        </init-param>-->
+            <param-value>DispatcherServlet-servlet.xml</param-value>
+        </init-param>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>DispatcherServlet</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+
+
+
     <welcome-file-list>
-        <welcome-file>index.jsp</welcome-file>
+        <welcome-file>jsp/login.jsp</welcome-file>
     </welcome-file-list>
 
 </web-app>

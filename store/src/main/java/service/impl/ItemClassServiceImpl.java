@@ -8,6 +8,7 @@ import service.ItemClassService;
 @Service
 public class ItemClassServiceImpl implements ItemClassService{
 
+
     private ItemClassDao itemClassDao;
 
     @Autowired
